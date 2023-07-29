@@ -1,0 +1,73 @@
+html,body{
+    height:100%;
+    width:100%;
+    font-family: 'Roboto', sans-serif;
+    margin:0%;
+    box-sizing: border-box;
+    font-size:16px;
+}
+
+header{
+    background-color: #e9e8eb;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 20px 80px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.06);
+    height:10vh;
+    position:sticky;
+    top: 0px;
+    left: 0px;
+}
+
+header .logo{
+    width:100px;
+    height:100px;
+}
+
+nav ul{
+    display:flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap:wrap;
+
+}
+nav li{
+    list-style:none;
+    padding: 0 20px;
+}
+nav li a{
+
+    text-decoration: none;
+    font-weight:600;    
+    color:black;
+}
+
+nav li a:hover,nav li a.active{
+    color: #03adef;
+}
+
+.hero{
+    background-image: url('..\\img\\wp1877585.webp');
+    height:90vh;
+    width:100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin:0px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-left: 10%;
+}
+
+.hero button{
+    border-radius: 5px;
+    background-color:#03adef;
+    border-color:white;
+    font-weight:600;
+    padding: 5px 5px;
+}
