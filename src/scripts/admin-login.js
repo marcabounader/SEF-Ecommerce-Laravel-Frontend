@@ -22,7 +22,7 @@ btn.addEventListener('click',()=>{
             localStorage.setItem('admin_name',response.user.name);
             localStorage.setItem('admin_email',response.user.email);
             localStorage.setItem('admin_token',response.authorisation.token);
-            // window.location.replace('shop.html')  
+            window.location.replace('admin-dashboard.html')  
             console.log(response);      
         }
     })
