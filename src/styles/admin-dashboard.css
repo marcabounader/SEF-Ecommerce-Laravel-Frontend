@@ -1,0 +1,34 @@
+.header{
+    text-align: center;
+}
+
+.products-container{
+
+}
+.products-container{
+    display:flex;
+    justify-content: center;
+}
+.products-subcontainer{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.products-subcontainer .item{
+    border:1px solid black;
+    border-radius: 4px;
+    margin:5px 5px;
+    display:flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items:center;
+    justify-content: space-between;
+}
+
+.products-subcontainer img{
+    width:30%;
+}
+.products-subcontainer i{
+    margin:10px 10px;
+    cursor: pointer;
+}
