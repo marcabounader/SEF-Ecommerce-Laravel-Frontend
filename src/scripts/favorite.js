@@ -36,18 +36,25 @@ function getItems() {
         item_div.innerHTML=`
         <div class='item' id='item-${item.id}'>
         <h4>${item.product_name}</h4>
-        <p>${item.product_description}</p>
         <img src='src\\img\\shopping-bag.svg' alt='product image'>
         <div> 
                 <i class="fa-solid fa-trash btn-cart btn-cart-${item.id}"></i>
-              
         </div>
+        <p class="item-description">${item.product_description}</p>
         </div>`;
         let btn_cart=item_div.getElementsByClassName(`btn-cart-${item.id}`)[0];
 
         btn_cart.addEventListener('click',(e)=>{
             removeFavorite(item.id);
-        })
+        });
+        let item_description=item_div.getElementsByClassName(`item-description`)[0];
+        console.log(item_description);
+        item_div.addEventListener('mouseover',()=>{
+            item_description.style.display="block";
+        });
+        item_div.addEventListener('mouseout',()=>{
+            item_description.style.display="none";
+        });
         products_container.appendChild(item_div);
     });
 

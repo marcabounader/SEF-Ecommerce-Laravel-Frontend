@@ -43,23 +43,18 @@ function getItems() {
     let products_container=document.getElementById('products');
     items.forEach(item => {
         const item_div=document.createElement("div");
-        // item_div.innerHTML="<div>marc</div>"
-        // item_div.innerHTML+=`<div class="item" id="item-${item.id}>
-        //             <div><h2>${item.product_name}</h2>
-        //             <p>${item.product_description}</p></div>
-        //             <img src=${item.product_image}>
-        //         </div>`;
         item_div.innerHTML=`
         <div class='item' id='item-${item.id}'>
         <h4>${item.product_name}</h4>
-        <p>${item.product_description}</p>
         <img src='src\\img\\shopping-bag.svg' alt='product image'>
-        <div>   <i class="fa-solid fa-star btn-favorite btn-favorite-${item.id}"></i>
-                <i class="fa-solid fa-cart-shopping btn-cart btn-cart-${item.id}"></i>
+        <div>   
+            <i class="fa-solid fa-star btn-favorite btn-favorite-${item.id}"></i>
+            <i class="fa-solid fa-cart-shopping btn-cart btn-cart-${item.id}"></i>
         </div>
+        <p class="item-description">${item.product_description}</p>
         </div>`;
         let btn_favorite=item_div.getElementsByClassName(`btn-favorite-${item.id}`)[0];
-        btn_favorite.addEventListener('click',(e)=>{
+        btn_favorite.addEventListener('click',()=>{
             addFavorite(item.id);
         })
         let btn_cart=item_div.getElementsByClassName(`btn-cart-${item.id}`)[0];
@@ -67,6 +62,13 @@ function getItems() {
         btn_cart.addEventListener('click',(e)=>{
             addCart(item.id);
         })
+        let item_description=item_div.getElementsByClassName(`item-description`)[0];
+        item_div.addEventListener('mouseover',()=>{
+            item_description.style.display="block";
+        });
+        item_div.addEventListener('mouseout',()=>{
+            item_description.style.display="none";
+        });
         products_container.appendChild(item_div);
     });
 
