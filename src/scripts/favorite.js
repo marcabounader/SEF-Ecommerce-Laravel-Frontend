@@ -39,7 +39,8 @@ function getItems() {
         item_div.innerHTML=`
         <div class='item' id='item-${item.id}'>
         <h4>${item.product_name}</h4>
-        <img src='src\\img\\shopping-bag.svg' alt='product image'>
+        <p>${item.product_category}</p>
+        <img src='${item.product_image}' alt='product image'>
         <div> 
                 <i class="fa-solid fa-trash btn-cart btn-cart-${item.id}"></i>
         </div>
