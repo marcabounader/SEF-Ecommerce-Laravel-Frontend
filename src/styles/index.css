@@ -26,7 +26,9 @@ header .logo{
     width:100px;
     height:100px;
 }
-
+#a-login, #a-register{
+    display:none;
+}
 nav ul{
     display:flex;
     align-items: center;
