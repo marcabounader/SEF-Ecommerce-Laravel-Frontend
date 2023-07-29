@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="stylesheet" href="src/styles/index.css"> 
-        <link rel="stylesheet" href="src/styles/admin-dashboard.css"> 
+        <link rel="stylesheet" href="src/styles/admin-add.css"> 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
@@ -23,12 +23,20 @@
                 </ul>           
             </nav>
         </header>
-        <section class="header">
-            <div class="products-container" >
-                <div class="products-subcontainer" id="products">
+        <section class="add">
+            <form class="add-container">
+                <h1>Add Product</h1>  
+                <label for="product-name">Name</label>
+                <input type="text" id="product-name" placeholder="Name" required>
+                <label for="product_description">Description</label>
+                <input type="text" id="product-description" placeholder="Description" required>
+                <label for="product_category">Category</label>
+                <input type="text" id="product-category" placeholder="Category" required>
+                <label for="product_image">Image path</label>
+                <input type="text" id="product-image" placeholder="Image path" required>
+            </form>
+            <button id="btn-add">Add product</button>
 
-                </div>
-            </div>
         </section>
         <footer>
 
