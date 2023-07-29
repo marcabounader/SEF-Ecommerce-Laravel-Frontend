@@ -17,7 +17,7 @@ btn.addEventListener('click',()=>{
     })
     .then((response) => response.json())
     .then((response) => {
-        if(response.status='success'){
+        if(response.status=='success'){
             localStorage.setItem('user_id',response.user.id);
             localStorage.setItem('user_name',response.user.name);
             localStorage.setItem('user_email',response.user.email);

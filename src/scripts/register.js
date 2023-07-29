@@ -19,7 +19,7 @@ btn.addEventListener('click',()=>{
     })
     .then((response) => response.json())
     .then((response) => {
-        if(response.status='success'){
+        if(response.status=='success'){
             window.location.replace('login.html')        }
         console.log(response);
     })
