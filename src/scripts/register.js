@@ -6,7 +6,6 @@ btn.addEventListener('click',()=>{
     let password=document.getElementById('password');
     fetch("http://localhost:8000/api/user-register",{
         method: "POST",
-        // mode: "cors",
         cache: "no-cache",
         headers: {
             Accept: "application/json",
