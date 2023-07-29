@@ -4,7 +4,7 @@ btn.addEventListener('click',()=>{
     let name=document.getElementById('name');
     let email=document.getElementById('email');
     let password=document.getElementById('password');
-    fetch("http://localhost:8000/api/users/register",{
+    fetch("http://localhost:8000/api/login/user-register",{
         method: "POST",
         // mode: "cors",
         cache: "no-cache",
@@ -13,7 +13,11 @@ btn.addEventListener('click',()=>{
             Accept: "application/json",
             "Content-Type": "application/json",
         },
-        body: JSON.stringify(getcredentials),
+        body: JSON.stringify({
+            name,
+            email,
+            password
+        }),
     })
     .then((response) => response.json())
     .then((response) => {
