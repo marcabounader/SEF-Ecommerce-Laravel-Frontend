@@ -2,15 +2,20 @@ window.addEventListener('load',() => {
     let token=localStorage.getItem('token');
     let a_login=document.getElementById('a-login');
     let a_register=document.getElementById('a-register');
+    let btn_logout=document.getElementById('btn-logout');
+
     if(token!=null){
         let welcome_name=document.getElementById('welcome-name');
 
         welcome_name.innerText=localStorage.getItem('user_name').toUpperCase();
+        btn_logout.style.display="block";
 
     } else{
         a_login.style.display="list-item";
-        a_register.style.display="list-item"
+        a_register.style.display="list-item";
+
     }
+
     document.addEventListener("DOMContentLoaded", getItems());
 })
 

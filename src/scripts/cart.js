@@ -1,6 +1,6 @@
 window.addEventListener('load',() => {
     let token=localStorage.getItem('token');
-    if(token=null){
+    if(token==null){
         window.location.replace('login.html')        
     }
     document.addEventListener("DOMContentLoaded", getItems());

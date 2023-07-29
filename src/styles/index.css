@@ -26,7 +26,7 @@ header .logo{
     width:100px;
     height:100px;
 }
-#a-login, #a-register{
+#a-login, #a-register, #btn-logout{
     display:none;
 }
 nav ul{
@@ -48,8 +48,12 @@ nav li a{
     color:black;
 }
 
-nav li a:hover,nav li a.active{
+nav li a:hover,nav li i:hover,nav li a.active{
     color: #03adef;
+}
+
+#btn-logout{
+    cursor: pointer;
 }
 
 .hero{
