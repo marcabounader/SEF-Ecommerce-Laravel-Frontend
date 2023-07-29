@@ -1,8 +1,11 @@
 window.addEventListener('load',() => {
     let token=localStorage.getItem('token');
+    let btn_logout=document.getElementById('btn-logout');
     if(token==null){
         window.location.replace('login.html')        
     }
+    btn_logout.style.display="list-item";
+
     document.addEventListener("DOMContentLoaded", getItems());
 })
 

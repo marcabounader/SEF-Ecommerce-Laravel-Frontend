@@ -17,7 +17,7 @@ window.addEventListener('load',() => {
         .then((response) => response.json())
         .then((response) => {
             if(response.status='success'){
-                localStorage.clear;
+                localStorage.clear();
                 window.location.replace('index.html')        
             }
         })
