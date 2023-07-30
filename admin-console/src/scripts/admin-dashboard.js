@@ -27,16 +27,18 @@ function getItems() {
     let products_container=document.getElementById('products');
     items.forEach(item => {
         const item_div=document.createElement("div");
+        item_div.classList.add('item');
+        item_div.id=`item-${item.id}`;
+
         item_div.innerHTML=`
-        <div class='item' id='item-${item.id}'>
-        <h4>${item.product_name}</h4>
+        <a href="admin-update.html?product_id=${item.id}&product_name=${item.product_name}&product_description=${item.product_description}&product_category=${item.product_category}&product_image=${item.product_image}"><h4>${item.product_name}</h4></a>
         <p>${item.product_category}</p>
         <img src='${item.product_image}' alt='product image'>
         <div>   
             <i class="fa-solid fa-trash btn-item btn-item-${item.id}"></i>
         </div>
         <p class="item-description">${item.product_description}</p>
-        </div>`;
+        `;
         let btn_favorite=item_div.getElementsByClassName(`btn-item-${item.id}`)[0];
         btn_favorite.addEventListener('click',()=>{
             removeProduct(item.id);

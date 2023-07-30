@@ -43,8 +43,9 @@ function getItems() {
     let products_container=document.getElementById('products');
     items.forEach(item => {
         const item_div=document.createElement("div");
+        item_div.classList.add('item');
+        item_div.id=`item-${item.id}`;
         item_div.innerHTML=`
-        <div class='item' id='item-${item.id}'>
         <h4>${item.product_name}</h4>
         <p>${item.product_category}</p>
         <img src='${item.product_image}' alt='product image'>
@@ -52,8 +53,7 @@ function getItems() {
             <i class="fa-solid fa-star btn-favorite btn-favorite-${item.id}"></i>
             <i class="fa-solid fa-cart-shopping btn-cart btn-cart-${item.id}"></i>
         </div>
-        <p class="item-description">${item.product_description}</p>
-        </div>`;
+        <p class="item-description">${item.product_description}</p>`;
         let btn_favorite=item_div.getElementsByClassName(`btn-favorite-${item.id}`)[0];
         btn_favorite.addEventListener('click',()=>{
             addFavorite(item.id);
@@ -92,7 +92,7 @@ function addFavorite(product_id) {
     })
     .then((response) => response.json())
     .then((items) => {
-        if(items.status=='success'){
+        if(items.status!='success'){
             console.log(items);
         }
     })
@@ -115,7 +115,7 @@ function addFavorite(product_id) {
     })
     .then((response) => response.json())
     .then((items) => {
-        if(items.status=='success'){
+        if(items.status!='success'){
             console.log(items);
         }
     })

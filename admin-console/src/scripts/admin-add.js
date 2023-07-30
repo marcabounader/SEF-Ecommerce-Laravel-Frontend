@@ -27,7 +27,7 @@ window.addEventListener('load',() => {
         .then((response) => response.json())
         .then((response) => {
             if(response.status=='success'){
-                // window.location.replace('admin-dashboard.html')        
+                window.location.replace('admin-dashboard.html')        
             }
         })
         .catch((error) => {

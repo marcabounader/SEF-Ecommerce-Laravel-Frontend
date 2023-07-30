@@ -1,5 +1,9 @@
 const btn=document.getElementById('btn-signin');
-
+document.getElementById("password").addEventListener("keypress", function(event){
+    if(event.keyCode == 13){
+        document.getElementById("btn-document").click();
+    }
+});
 btn.addEventListener('click',()=>{
     let email=document.getElementById('email');
     let password=document.getElementById('password');
@@ -23,7 +27,6 @@ btn.addEventListener('click',()=>{
             localStorage.setItem('admin_email',response.user.email);
             localStorage.setItem('admin_token',response.authorisation.token);
             window.location.replace('admin-dashboard.html')  
-            console.log(response);      
         }
     })
     .catch((error) => {

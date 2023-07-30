@@ -36,16 +36,16 @@ function getItems() {
     let products_container=document.getElementById('products');
     items.forEach(item => {
         const item_div=document.createElement("div");
+        item_div.classList.add('item');
+        item_div.id=`item-${item.id}`;
         item_div.innerHTML=`
-        <div class='item' id='item-${item.id}'>
         <h4>${item.product_name}</h4>
         <p>${item.product_category}</p>
         <img src='${item.product_image}' alt='product image'>
         <div> 
           <i class="fa-solid fa-trash btn-cart btn-cart-${item.id}"></i>
         </div>
-        <p class="item-description">${item.product_description}</p>
-        </div>`;
+        <p class="item-description">${item.product_description}</p>`;
         let btn_cart=item_div.getElementsByClassName(`btn-cart-${item.id}`)[0];
 
         btn_cart.addEventListener('click',(e)=>{

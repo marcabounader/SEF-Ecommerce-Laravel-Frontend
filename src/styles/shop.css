@@ -13,6 +13,7 @@
     display:flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: space-between;
 }
 .products-subcontainer .item{
     border:1px solid black;
@@ -23,6 +24,7 @@
     flex-wrap: wrap;
     align-items:center;
     justify-content: space-between;
+    align-self: ;
 }
 
 .products-subcontainer img{
