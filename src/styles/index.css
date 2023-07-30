@@ -76,6 +76,20 @@ nav li a:hover,nav li i:hover,nav li a.active{
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    align-items: center;
+}
+.cart-content .item .quantity{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.cart-content .item .quantity button{
+    border-radius: 100%;
+}
+.cart-content .item .quantity input{
+    width: 30px;
+    text-align: center;
 }
 .cart img{
     width:100px;

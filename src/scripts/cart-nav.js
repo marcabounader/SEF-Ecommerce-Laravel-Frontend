@@ -41,14 +41,23 @@ function getCart() {
         const item_div=document.createElement("div");
         item_div.classList.add('item');
         item_div.id=`item-${item.id}`;
+        console.log(item);
         item_div.innerHTML=`
         <div>
         <img src='${item.product_image}' alt='product image'>
         </div>
         <div>
         <h4>${item.product_name}</h4>
-        <p>${item.product_category}</p>
         </div>
+        <div class="quantity">
+          <button class="plus-btn" type="button" name="button">
+            <i class="fa-solid fa-plus"></i>
+          </button>
+          <input type="text" name="name" value="${item.quantity}">
+          <button class="minus-btn" type="button" name="button">
+            <i class="fa-solid fa-minus"></i>
+        </button>
+      </div>
         <i class="fa-solid fa-trash btn-cart btn-cart}"></i>`;
         let btn_cart=item_div.getElementsByClassName(`btn-cart`)[0];
 
