@@ -52,7 +52,7 @@ function getCart() {
           <button class="plus-btn" type="button" name="button">
             <i class="fa-solid fa-plus"></i>
           </button>
-          <input type="text" name="name" value="${item.quantity}">
+          <input type="text" name="name" value="${item.quantity}" class="quantity-value">
           <button class="minus-btn" type="button" name="button">
             <i class="fa-solid fa-minus"></i>
         </button>
@@ -64,23 +64,21 @@ function getCart() {
 
         btn_cart.addEventListener('click',(e)=>{
           e.preventDefault();
-            removeCart(item.id);
-            item_div.contentWindow.location.reload (true);
+            removeCart(item.id,item_div);
 
         })
         btn_plus.addEventListener('click',(e)=>{
           e.preventDefault();
-          updateQuantity(item.id,++item.quantity);
-          item_div.contentWindow.location.reload (true);
+          updateQuantity(item.id,++item.quantity,item_div);
+
 
         })
         btn_minus.addEventListener('click',(e)=>{
           e.preventDefault();
           if(item.quantity>"1"){
-            updateQuantity(item.id,--item.quantity);
-            item_div.contentWindow.location.reload (true);
+            updateQuantity(item.id,--item.quantity,item_div);
           }else{
-            removeCart(item.id);
+            removeCart(item.id,item_div);
           }
         })
         products_container.appendChild(item_div);
@@ -89,7 +87,7 @@ function getCart() {
 
 }
 
-function removeCart(product_id) {
+function removeCart(product_id,item_div) {
     let token=localStorage.getItem('token');
     fetch(`http://localhost:8000/api/user/delete-cart/${product_id}`, {
       method: "DELETE",
@@ -103,13 +101,13 @@ function removeCart(product_id) {
     .then((response) => response.json())
     .then((items) => {
         if(items.status=='success'){
-          location.reload();
+          item_div.remove();
         }
     })
     .catch((error) => console.log(error))
   }
 
-  function updateQuantity(id,quantity) {
+  function updateQuantity(id,quantity,item_div) {
     let token=localStorage.getItem('token');
     fetch(`http://localhost:8000/api/user/update-quantity`, {
       method: "PUT",
@@ -128,7 +126,8 @@ function removeCart(product_id) {
     .then((response) => response.json())
     .then((items) => {
         if(items.status=='success'){
-          location.reload();
+          let quantity_value=item_div.getElementsByClassName('quantity-value')[0];
+          quantity_value.value=quantity;
         }
     })
     .catch((error) => console.log(error))

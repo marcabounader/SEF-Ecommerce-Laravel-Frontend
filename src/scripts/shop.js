@@ -61,7 +61,7 @@ function getItems() {
         let btn_cart=item_div.getElementsByClassName(`btn-cart-${item.id}`)[0];
 
         btn_cart.addEventListener('click',(e)=>{
-            addCart(item.id);
+            addCart(item.id,products_container);
         })
         let item_description=item_div.getElementsByClassName(`item-description`)[0];
         item_div.addEventListener('mouseover',()=>{
@@ -93,13 +93,12 @@ function addFavorite(product_id) {
     .then((response) => response.json())
     .then((items) => {
         if(items.status=='success'){
-            // window.location.reload();
         }
     })
     .catch((error) => console.log(error))
   }
 
-  function addCart(product_id) {
+  function addCart(product_id,products_container) {
     let token=localStorage.getItem('token');
     fetch(`http://localhost:8000/api/user/add-cart`, {
       method: "POST",
@@ -116,7 +115,7 @@ function addFavorite(product_id) {
     .then((response) => response.json())
     .then((items) => {
         if(items.status=='success'){
-            // window.location.reload();
+            
         }
     })
     .catch((error) => console.log(error))
