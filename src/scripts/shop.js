@@ -46,9 +46,9 @@ function getItems() {
         item_div.classList.add('item');
         item_div.id=`item-${item.id}`;
         item_div.innerHTML=`
-        <img src='${item.product_image}' alt='product image'>
         <h4>${item.product_name}</h4>
         <p>${item.product_category}</p>
+        <img src='${item.product_image}' alt='product image'>
         <div>   
             <i class="fa-solid fa-star btn-favorite btn-favorite-${item.id}"></i>
             <i class="fa-solid fa-cart-shopping btn-cart btn-cart-${item.id}"></i>
@@ -92,8 +92,8 @@ function addFavorite(product_id) {
     })
     .then((response) => response.json())
     .then((items) => {
-        if(items.status!='success'){
-            console.log(items);
+        if(items.status=='success'){
+            window.location.reload();
         }
     })
     .catch((error) => console.log(error))
@@ -115,8 +115,8 @@ function addFavorite(product_id) {
     })
     .then((response) => response.json())
     .then((items) => {
-        if(items.status!='success'){
-            console.log(items);
+        if(items.status=='success'){
+            window.location.reload();
         }
     })
     .catch((error) => console.log(error))

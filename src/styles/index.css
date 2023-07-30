@@ -15,16 +15,18 @@ header{
     flex-wrap: wrap;
     align-items: center;
     padding: 20px 80px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.06);
+    box-shadow: 0px 2px 4px #c5bcd6;
     height:10vh;
     position:sticky;
     top: 0px;
     left: 0px;
+
 }
 
 header .logo{
     width:100px;
     height:100px;
+
 }
 #a-login, #a-register, #btn-logout{
     display:none;
@@ -51,8 +53,36 @@ nav li a{
 nav li a:hover,nav li i:hover,nav li a.active{
     color: #03adef;
 }
+.cart{
+    position:fixed;
+    top:0;
+    right:0;
+    width:360px;
+    min-height:100vh;
+    padding:20px;
+    background-color: white;
+    box-shadow: -2px 0px 4px #c5bcd6;
+    display:none;
+}
 
-#btn-logout{
+.cart-title{
+    text-align: center;
+    margin-top:40px;
+    text-transform: uppercase;
+}
+.cart-content .item{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.cart img{
+    width:100px;
+    height:100px;
+    object-fit: contain;
+    padding:10px;
+}
+header i{
     cursor: pointer;
 }
 
