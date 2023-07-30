@@ -63,6 +63,7 @@ nav li a:hover,nav li i:hover,nav li a.active{
     background-color: white;
     box-shadow: -2px 0px 4px #c5bcd6;
     display:none;
+    flex-direction: column;
 }
 
 .cart-title{
@@ -81,6 +82,10 @@ nav li a:hover,nav li i:hover,nav li a.active{
     height:100px;
     object-fit: contain;
     padding:10px;
+}
+
+.cart button{
+    align-self: center;
 }
 header i{
     cursor: pointer;

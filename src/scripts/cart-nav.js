@@ -5,10 +5,13 @@
         cart.style.display='none';
     })
     btn_cart.addEventListener('click',()=>{
-      cart.style.display='block';
+      cart.style.display='flex';
       getCart()
     })
-
+    let btn_view_cart=document.getElementById('view-cart');
+    btn_view_cart.addEventListener('click',()=>{
+        window.location.replace('cart.html');
+    })
 
 
 function getCart() {

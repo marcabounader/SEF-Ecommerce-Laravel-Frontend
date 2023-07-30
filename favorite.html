@@ -21,10 +21,18 @@
                 <ul>
                     <li><a class="active" href="/">Home</a></li>
                     <li><a href="/shop.html">Shop</a></li>
-                    <li id="a-cart"><a href="/cart.html"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                    <li id="btn-cart"><i class="fa-solid fa-cart-shopping"></i></li>
                     <li id="btn-logout"><i class="fa-solid fa-right-from-bracket"></i></li>
                 </ul>           
             </nav>
+            <div class="cart">
+                <i class="fa-solid fa-xmark" id="close-cart"></i>
+                <h2 class="cart-title">Cart</h2>
+                <div class="cart-content">
+
+                </div>
+                <button id="view-cart">View cart</button>
+            </div>
         </header>
 
         <section class="header">
@@ -38,6 +46,7 @@
         <footer>
 
         </footer>
+        <script src="src/scripts/cart-nav.js"></script>
         <script src="src/scripts/logout.js"></script>
     </body>
 </html>
