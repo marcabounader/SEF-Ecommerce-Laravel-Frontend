@@ -1,7 +1,7 @@
 const btn=document.getElementById('btn-signin');
 document.getElementById("password").addEventListener("keypress", function(event){
     if(event.keyCode == 13){
-        document.getElementById("btn-document").click();
+        document.getElementById("btn-signin").click();
     }
 });
 btn.addEventListener('click',()=>{

@@ -1,4 +1,7 @@
 window.addEventListener('load',() => {
+    if(localStorage.getItem('admin_token')==null){
+        window.location.replace('./admin-login.html');
+      }
     const btn_logout=document.getElementById('btn-logout');
     const btn_update=document.getElementById('btn-update');
     btn_logout.style.display="block";

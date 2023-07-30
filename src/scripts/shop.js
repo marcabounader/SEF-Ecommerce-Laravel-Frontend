@@ -46,9 +46,9 @@ function getItems() {
         item_div.classList.add('item');
         item_div.id=`item-${item.id}`;
         item_div.innerHTML=`
+        <img src='${item.product_image}' alt='product image'>
         <h4>${item.product_name}</h4>
         <p>${item.product_category}</p>
-        <img src='${item.product_image}' alt='product image'>
         <div>   
             <i class="fa-solid fa-star btn-favorite btn-favorite-${item.id}"></i>
             <i class="fa-solid fa-cart-shopping btn-cart btn-cart-${item.id}"></i>
