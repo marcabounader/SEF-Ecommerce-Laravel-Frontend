@@ -40,7 +40,6 @@ function getCart() {
         const item_div=document.createElement("div");
         item_div.classList.add('item');
         item_div.id=`item-${item.id}`;
-        console.log(item);
         item_div.innerHTML=`
         <div>
         <img src='${item.product_image}' alt='product image'>

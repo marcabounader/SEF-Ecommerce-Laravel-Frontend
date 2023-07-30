@@ -61,7 +61,7 @@ function getItems() {
         let btn_cart=item_div.getElementsByClassName(`btn-cart-${item.id}`)[0];
 
         btn_cart.addEventListener('click',(e)=>{
-            addCart(item.id,products_container);
+            addCart(item.id,item);
         })
         let item_description=item_div.getElementsByClassName(`item-description`)[0];
         item_div.addEventListener('mouseover',()=>{
@@ -98,7 +98,7 @@ function addFavorite(product_id) {
     .catch((error) => console.log(error))
   }
 
-  function addCart(product_id,products_container) {
+  function addCart(product_id,products) {
     let token=localStorage.getItem('token');
     fetch(`http://localhost:8000/api/user/add-cart`, {
       method: "POST",
@@ -115,8 +115,57 @@ function addFavorite(product_id) {
     .then((response) => response.json())
     .then((items) => {
         if(items.status=='success'){
-            
+            displayCartItem(products);
         }
     })
     .catch((error) => console.log(error))
   }
+
+  function displayCartItem(item){
+    let products_container=document.getElementsByClassName('cart-content')[0];
+        const item_div=document.createElement("div");
+        item_div.classList.add('item');
+        item_div.id=`item-${item.id}`;
+        item_div.innerHTML=`
+        <div>
+        <img src='${item.product_image}' alt='product image'>
+        </div>
+        <div>
+        <h4>${item.product_name}</h4>
+        </div>
+        <div class="quantity">
+          <button class="plus-btn" type="button" name="button">
+            <i class="fa-solid fa-plus"></i>
+          </button>
+          <input type="text" name="name" value="1" class="quantity-value">
+          <button class="minus-btn" type="button" name="button">
+            <i class="fa-solid fa-minus"></i>
+        </button>
+      </div>
+        <i class="fa-solid fa-trash btn-cart btn-cart}"></i>`;
+        let btn_cart=item_div.getElementsByClassName(`btn-cart`)[0];
+        let btn_plus=item_div.getElementsByClassName('plus-btn')[0];
+        let btn_minus=item_div.getElementsByClassName('minus-btn')[0];
+
+        btn_cart.addEventListener('click',(e)=>{
+          e.preventDefault();
+            removeCart(item.id,item_div);
+
+        })
+        btn_plus.addEventListener('click',(e)=>{
+          e.preventDefault();
+          updateQuantity(item.id,++item.quantity,item_div);
+
+
+        })
+        btn_minus.addEventListener('click',(e)=>{
+          e.preventDefault();
+          if(item.quantity>"1"){
+            updateQuantity(item.id,--item.quantity,item_div);
+          }else{
+            removeCart(item.id,item_div);
+          }
+        })
+        products_container.appendChild(item_div);
+
+}
