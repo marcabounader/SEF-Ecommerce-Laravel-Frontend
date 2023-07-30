@@ -93,7 +93,7 @@ function addFavorite(product_id) {
     .then((response) => response.json())
     .then((items) => {
         if(items.status=='success'){
-            window.location.reload();
+            // window.location.reload();
         }
     })
     .catch((error) => console.log(error))
@@ -116,7 +116,7 @@ function addFavorite(product_id) {
     .then((response) => response.json())
     .then((items) => {
         if(items.status=='success'){
-            window.location.reload();
+            // window.location.reload();
         }
     })
     .catch((error) => console.log(error))

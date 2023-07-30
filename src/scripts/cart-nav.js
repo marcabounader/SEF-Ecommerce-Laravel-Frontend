@@ -28,7 +28,6 @@ function getCart() {
     .then((response) => response.json())
     .then((items) => {
         if(items.status=='success'){
-            console.log(items);
             displayCartItems(items.products);
         }
     })
@@ -60,9 +59,29 @@ function getCart() {
       </div>
         <i class="fa-solid fa-trash btn-cart btn-cart}"></i>`;
         let btn_cart=item_div.getElementsByClassName(`btn-cart`)[0];
+        let btn_plus=item_div.getElementsByClassName('plus-btn')[0];
+        let btn_minus=item_div.getElementsByClassName('minus-btn')[0];
 
         btn_cart.addEventListener('click',(e)=>{
+          e.preventDefault();
             removeCart(item.id);
+            item_div.contentWindow.location.reload (true);
+
+        })
+        btn_plus.addEventListener('click',(e)=>{
+          e.preventDefault();
+          updateQuantity(item.id,++item.quantity);
+          item_div.contentWindow.location.reload (true);
+
+        })
+        btn_minus.addEventListener('click',(e)=>{
+          e.preventDefault();
+          if(item.quantity>"1"){
+            updateQuantity(item.id,--item.quantity);
+            item_div.contentWindow.location.reload (true);
+          }else{
+            removeCart(item.id);
+          }
         })
         products_container.appendChild(item_div);
     });
@@ -81,6 +100,31 @@ function removeCart(product_id) {
         'Authorization':`Bearer ${token}`
       }  
     })
+    .then((response) => response.json())
+    .then((items) => {
+        if(items.status=='success'){
+          location.reload();
+        }
+    })
+    .catch((error) => console.log(error))
+  }
+
+  function updateQuantity(id,quantity) {
+    let token=localStorage.getItem('token');
+    fetch(`http://localhost:8000/api/user/update-quantity`, {
+      method: "PUT",
+      cache: "no-cache",
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization':`Bearer ${token}`
+      }  ,
+      body: JSON.stringify({
+        'product_id': id,
+        'quantity':quantity
+      })
+    })
+
     .then((response) => response.json())
     .then((items) => {
         if(items.status=='success'){
