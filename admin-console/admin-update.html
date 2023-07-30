@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="../src/styles/index.css"> 
+        <link rel="stylesheet" href="/src/styles/admin-add.css"> 
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/db1d32be7b.js" crossorigin="anonymous"></script>
+        <script src="/src/scripts/admin-update.js"></script>
+    </head>
+    <body>
+        <header>
+            <a href="/admin-dashboard.html">
+                <img src="../src/img/e-commerce.png" alt="ecommerce logo" class="logo">
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="./admin-add.html">Update</a></li>
+                    <li id="btn-logout"><i class="fa-solid fa-right-from-bracket"></i></li>
+                </ul>           
+            </nav>
+        </header>
+        <section class="add">
+            <form class="add-container">
+                <h1>Update Product</h1>  
+                <label for="product-name">Name</label>
+                <input type="text" id="product-name" placeholder="Name" required>
+                <label for="product_description">Description</label>
+                <input type="text" id="product-description" placeholder="Description" required>
+                <label for="product_category">Category</label>
+                <input type="text" id="product-category" placeholder="Category" required>
+                <label for="product_image">Image path</label>
+                <input type="text" id="product-image" placeholder="Image path" required>
+            </form>
+            <button id="btn-update">Update this product</button>
+
+        </section>
+        <footer>
+
+        </footer>
+        <script src="/src/scripts/admin-logout.js"></script>
+    </body>
+</html>
