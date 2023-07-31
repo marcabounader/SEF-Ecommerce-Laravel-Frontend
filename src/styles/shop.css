@@ -40,6 +40,10 @@
     border-radius: 100%;
     padding:10px;
 }
+.item a{
+    text-decoration: none;
+    color: black;
+}
 
 @media (max-width:589px){
     .products-subcontainer .item{

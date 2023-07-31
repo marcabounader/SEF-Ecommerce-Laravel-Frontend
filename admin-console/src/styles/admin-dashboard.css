@@ -32,3 +32,6 @@
     margin:10px 10px;
     cursor: pointer;
 }
+.item a{
+    text-decoration: none;
+}
