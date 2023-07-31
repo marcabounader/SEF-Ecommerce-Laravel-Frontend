@@ -33,7 +33,7 @@ function getItems() {
     .then((response) => response.json())
     .then((items) => {
         if(items.status=='success'){
-            displayItems(items.products);
+          displayItems(items.products);
         }
     })
     .catch((error) => console.log(error))
@@ -50,18 +50,31 @@ function getItems() {
         <p>${item.product_category}</p>
         <img src='${item.product_image}' alt='product image'>
         <div>   
-            <i class="fa-solid fa-star btn-favorite btn-favorite-${item.id}"></i>
+            <i class="fa-regular fa-star btn-favorite btn-favorite-${item.id}"></i>
             <i class="fa-solid fa-cart-shopping btn-cart btn-cart-${item.id}"></i>
         </div>
         <p class="item-description">${item.product_description}</p>`;
+
+        let star=item_div.getElementsByClassName('fa-star')[0];
         let btn_favorite=item_div.getElementsByClassName(`btn-favorite-${item.id}`)[0];
-        btn_favorite.addEventListener('click',()=>{
+
+        isFavorite(item.id,star);
+
+        btn_favorite.addEventListener('click', ()=>{
+
+          if(star.classList.contains('fa-regular')){
             addFavorite(item.id);
+
+          } else if(star.classList.contains('fa-solid')){
+            removeFavorite(item.id);
+          }
+          star.classList.toggle('fa-regular');
+          star.classList.toggle('fa-solid');
         })
         let btn_cart=item_div.getElementsByClassName(`btn-cart-${item.id}`)[0];
 
-        btn_cart.addEventListener('click',(e)=>{
-            addCart(item.id,item);
+        btn_cart.addEventListener('click', (e)=>{
+            addCart(item.id, item);
         })
         let item_description=item_div.getElementsByClassName(`item-description`)[0];
         item_div.addEventListener('mouseover',()=>{
@@ -77,8 +90,8 @@ function getItems() {
 }
 
 function addFavorite(product_id) {
-    let token=localStorage.getItem('token');
-    fetch(`http://localhost:8000/api/user/add-favorite`, {
+      let token=localStorage.getItem('token');
+      fetch(`http://localhost:8000/api/user/add-favorite`, {
       method: "POST",
       cache: "no-cache",
       headers: {
@@ -122,7 +135,7 @@ function addFavorite(product_id) {
   }
 
   function displayCartItem(item){
-    let products_container=document.getElementsByClassName('cart-content')[0];
+        let products_container=document.getElementsByClassName('cart-content')[0];
         const item_div=document.createElement("div");
         item_div.classList.add('item');
         item_div.id=`item-${item.id}`;
@@ -168,4 +181,45 @@ function addFavorite(product_id) {
         })
         products_container.appendChild(item_div);
 
+}
+
+function removeFavorite(product_id) {
+  let token=localStorage.getItem('token');
+  fetch(`http://localhost:8000/api/user/delete-favorite/${product_id}`, {
+    method: "DELETE",
+    cache: "no-cache",
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      'Authorization':`Bearer ${token}`
+    }  
+  })
+  .then((response) => response.json())
+  .then((items) => {
+      if(items.status=='success'){
+        // location.reload();
+      }
+  })
+  .catch((error) => console.log(error))
+}
+
+function isFavorite(product_id,star) {
+  let token=localStorage.getItem('token');
+  fetch(`http://localhost:8000/api/user/is-favorite/${product_id}`, {
+    method: "GET",
+    cache: "no-cache",
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      'Authorization':`Bearer ${token}`
+    }  
+  })
+  .then((response) => response.json())
+  .then((items) => {
+      if(items.status=='success' && items.product.length=="1"){
+        star.classList.toggle('fa-regular');
+        star.classList.toggle('fa-solid');
+      }
+  })
+  .catch((error) => console.log(error))
 }
