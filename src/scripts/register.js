@@ -1,5 +1,9 @@
 const btn=document.getElementById('btn-register');
-
+document.getElementById("password").addEventListener("keypress", function(event){
+    if(event.keyCode == 13){
+        document.getElementById("btn-register").click();
+    }
+});
 btn.addEventListener('click',()=>{
     let name=document.getElementById('name');
     let email=document.getElementById('email');
