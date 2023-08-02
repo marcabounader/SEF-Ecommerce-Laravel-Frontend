@@ -28,12 +28,13 @@
                     <h1>Add Product</h1>  
                     <label for="product-name">Name</label>
                     <input type="text" id="product-name" placeholder="Name" required>
-                    <label for="product_description">Description</label>
+                    <label for="product-description">Description</label>
                     <input type="text" id="product-description" placeholder="Description" required>
-                    <label for="product_category">Category</label>
+                    <label for="product-category">Category</label>
                     <input type="text" id="product-category" placeholder="Category" required>
-                    <label for="product_image">Image path</label>
-                    <input type="text" id="product-image" placeholder="Image path" required>
+                    <label for="product-image">Image Upload</label>
+                    <input type="file" id="product-image" name="filename" accept="image/*">
+                    <img id="img-content" src="#" alt="uploaded-image">
                 </form>
                 <button id="btn-add">Add this product</button>
             </div>
