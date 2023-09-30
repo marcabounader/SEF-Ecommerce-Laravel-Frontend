@@ -9,12 +9,16 @@ window.addEventListener('load',() => {
 });
 
 function getItems() {
-    fetch(`http://localhost:8000/api/products`, {
+  let token=localStorage.getItem('admin_token');
+
+    fetch(`http://localhost:8000/api/admin/products`, {
       method: "GET",
       cache: "no-cache",
       headers: {
         'Accept': 'application/json',
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Authorization':`Bearer ${token}`
+
       },
     })
     .then((response) => response.json())
